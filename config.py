@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
- try:
+try:
     TG_API_ID = int(os.getenv("TG_API_ID", "0"))
 except ValueError:
     TG_API_ID = 0
