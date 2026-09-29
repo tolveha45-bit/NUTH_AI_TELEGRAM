@@ -16,11 +16,13 @@ from auto_reply import process_message
 from commands import handle_command
 
 
-SESSION_NAME = "nuth_personal"
+import os
+from telethon.sessions import StringSession
 
+STRING_SESSION = os.getenv("STRING_SESSION") or os.getenv("TG_SESSION")
 
 client = TelegramClient(
-    SESSION_NAME,
+    StringSession(STRING_SESSION),
     TG_API_ID,
     TG_API_HASH
 )
@@ -77,9 +79,8 @@ async def main():
         "================================"
     )
 
-    await client.start(
-        phone=TG_PHONE
-    )
+    await client.start()
+        
 
     me = await client.get_me()
 
