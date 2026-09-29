@@ -12,7 +12,8 @@ from database import (
 )
 
 client = OpenAI(
-    api_key=OPENAI_API_KEY
+    api_key=OPENAI_API_KEY,
+    base_url="https://api.groq.com/openai/v1"
 )
 
 
@@ -61,7 +62,7 @@ def generate_reply(user_id, user_message):
     })
 
     response = client.chat.completions.create(
-        model=OPENAI_MODEL,
+        model="llama-3.3-70b-versatile",
         messages=messages,
         temperature=0.7,
         max_tokens=500
