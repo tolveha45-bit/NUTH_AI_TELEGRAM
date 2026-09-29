@@ -2,8 +2,9 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-
-TG_API_ID = int(os.getenv("TG_API_ID", "0"))
+    TG_API_ID = int(os.getenv("TG_API_ID", "0"))
+except ValueError:
+    TG_API_ID = 0
 TG_API_HASH = os.getenv("TG_API_HASH", "")
 TG_PHONE = os.getenv("TG_PHONE", "")
 
